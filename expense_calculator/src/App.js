@@ -8,6 +8,8 @@ console.log(result)
 
 // Use this for calculating the weeks and days until the next pay
 
+// https://rsuitejs.com/components/date-range-picker/#appearance
+
 // function weeksAndDaysBetweenDates(date1, date2) {
 //     const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
     
