@@ -22,28 +22,34 @@ export default function Home() {
     selectableRangeEnd: endDate,
   };
 
-  const calc = startDate.getTime() - endDate.getTime();
+  const minute:number = 1000 * 60;
+  const hour:number = minute * 60;
+  const day:number = hour * 24;
 
-  const setter = (e:any) => {
+
+  const calcDays:number = ((endDate.getTime() - startDate.getTime()) / day);
+
+  const setter = (e:Array<Date>) => {
     setStartDate(e[0])
     setEndDate(e[1])
-    console.log(calc)
+    console.log(calcDays)
+    console.log(Math.floor(calcDays))
   }
 
   return (
-  <>
-    <TuiDateRangePicker
-      handleChange={(e) => setter(e)}
-      options={options}
-      inputWidth={100}
-      containerWidth={200}
-      startpickerDate={startDate}
-      endpickerDate={endDate}
-    />
+    <>
+      <TuiDateRangePicker
+        handleChange={(e) => setter(e)}
+        options={options}
+        inputWidth={100}
+        containerWidth={200}
+        startpickerDate={startDate}
+        endpickerDate={endDate}
+      />
 
-<p>{calc}</p>
+      <p>{`Weeks: ${Math.round(calcDays / 7)} Days: ${Math.round(calcDays % 7) === 7 ? 0 : Math.round(calcDays % 7)}`}</p>
 
-    {/* // const div = document.querySelector('.rs-input-group > input').value
+      {/* // const div = document.querySelector('.rs-input-group > input').value
     // let result = div.replace(/.*~/, '').trim();
     // console.log(result)
 
