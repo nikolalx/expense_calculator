@@ -1,4 +1,3 @@
-'use client'
 
 import PocketBase from 'pocketbase';
 import React from 'react'
